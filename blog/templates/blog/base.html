@@ -1,0 +1,64 @@
+{% load staticfiles %}
+
+<html>
+	<head>
+
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+		
+
+		<title>Wilson's blog</title>
+
+
+	</head>
+
+	<body>
+
+
+
+
+		<div class="page-header">
+
+			<h1><a href="/">django blog</a></h1>
+			{% if user.is_authenticated %}
+
+			<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+			{% endif %}
+			<a href="{% url 'post_football' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+
+			<a href="{% url 'subscribe' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+			<a href="{% url 'contact' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+
+			<form method="GET" action="{% url 'search' %}">
+      			<input type="text" name="q" />
+      			<input type="submit" />
+			</form>
+
+
+
+		</div>
+
+		<div class="content container"> 
+			<div class="row">
+
+				<div class="col-md-8">
+					{% block content%}
+
+
+					{% endblock %}
+
+				</div>			
+
+
+			</div>
+		</div>
+
+		
+
+		
+
+	</body>
+	
+</html>

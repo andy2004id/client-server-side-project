@@ -1,34 +1,16 @@
-<html>
-	<head>
-		<title>Wilson's blog</title>
-	</head>
+{% extends 'blog/base.html' %}
 
-	<body>
+{% block content%}
 
-		<div>
-			<h1><a href="">django blog</a></h1>
+						{% for post in posts%}
+							<div class="post">
+								<p> published:{{post.published_date}} </p>
+							<h1><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}} </a></h1>
 
+							<p>{{post.text|linebreaksbr}} </p>
+							
+							</div>
 
-		</div>
-		
+						{%endfor%}
 
-		<div>
-
-			<p> publi.  . .... . </p>
-			<h2><a href=""> my oskf </a></h2>
-			<p> fjhajkfhjahkjfasf </p>
-
-		</div>
-		
-
-		<div>
-
-			<p> publi.  . wae . </p>
-			<h2><a href=""> my fasfw </a></h2>
-			<p> vdjkvjdjvhjdj </p>
-
-		</div>
-
-	</body>
-	
-</html>
+{% endblock %}
