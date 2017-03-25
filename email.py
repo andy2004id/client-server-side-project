@@ -9,8 +9,8 @@ server = smtplib.SMTP('smtp.gmail.com', 587)
 server.ehlo()
 server.starttls()
 #Next, log in to the server
-server.login("andy555id@gmail.com", "Digimon1")
-sender="andy555id@gmail.com"
+server.login("Sender@gmail.com", "password")
+sender="Sender@gmail.com"
 
 conn=db.connect('email.db')
 
@@ -36,7 +36,7 @@ def sendMail():
     global sender,c1,c2
     
     
-    
+    #Change the sql query
     for client in c1.execute('SELECT addr FROM email'):
         msg=''
         msg = MIMEMultipart()
